@@ -32,33 +32,76 @@
 
 // rim raqamlari
 
-const romanValues = {
-  I: 1,
-  V: 5,
-  X: 10,
-  L: 50,
-  C: 100,
-  D: 500,
-  M: 1000,
-};
+// const romanValues = {
+//   I: 1,
+//   V: 5,
+//   X: 10,
+//   L: 50,
+//   C: 100,
+//   D: 500,
+//   M: 1000,
+// };
 
-const input = "MCMXCIV";
+// const input = "MCMXCIV";
 
-const Rim = (input) => {
-  let sum = 0;
+// const Rim = (input) => {
+//   let sum = 0;
 
-  for (let i = 0; i < input.length; i++) {
-    const currentChar = input[i];
-    const nextChar = input[i + 1];
+//   for (let i = 0; i < input.length; i++) {
+//     const currentChar = input[i];
+//     const nextChar = input[i + 1];
 
-    if (romanValues[currentChar] < romanValues[nextChar]) {
-      sum -= romanValues[currentChar];
-    } else {
-      sum += romanValues[currentChar];
+//     if (romanValues[currentChar] < romanValues[nextChar]) {
+//       sum -= romanValues[currentChar];
+//     } else {
+//       sum += romanValues[currentChar];
+//     }
+//   }
+
+//   return sum;
+// };
+
+// console.log(Rim(input));
+
+// strs = ["flower", "flow", "flight"];
+
+// function name(params) {
+//   for (let i = 0; i < strs[0].length; i++) {
+//     const a = strs[0];
+//     const b = strs[1];
+//     const c = strs[2];
+//     // console.log(a[i]);
+
+//     if (a[i] === b[i] || a[i] === c[i]) {
+//       return a;
+//     } else {
+//       console.log("x");
+//     }
+//   }
+
+//   return a;
+// }
+
+// console.log(name(strs));
+const strs = ["flower", "flow", "flight"];
+
+function longestCommonPrefix(strs) {
+  if (!strs || strs.length === 0) {
+    return "";
+  }
+
+  let prefix = strs[0];
+
+  for (let i = 1; i < strs.length; i++) {
+    while (strs[i].indexOf(prefix) !== 0) {
+      prefix = prefix.substring(0, prefix.length - 1);
+      if (prefix === "") {
+        return "";
+      }
     }
   }
 
-  return sum;
-};
+  return prefix;
+}
 
-console.log(Rim(input));
+console.log(longestCommonPrefix(strs));
